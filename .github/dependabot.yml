@@ -1,0 +1,77 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /apps/web
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+    versioning-strategy: increase
+    groups:
+      next:
+        patterns:
+          - '@types/react*'
+          - next
+          - react*
+      eslint:
+        patterns:
+          - 'eslint*'
+
+  - package-ecosystem: composer
+    directory: /apps/api
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+    versioning-strategy: increase
+    groups:
+      symfony:
+        patterns:
+          - symfony/*
+      doctrine:
+        patterns:
+          - doctrine/*
+
+  ### DOCKERFILES ###
+
+  - directory: /apps/api
+    package-ecosystem: docker
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - directory: /apps/web
+    package-ecosystem: docker
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - directory: /services/postgres
+    package-ecosystem: docker
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - directory: /services/nginx
+    package-ecosystem: docker
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - directory: /services/traefik
+    package-ecosystem: docker
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - directory: /services/rabbitmq
+    package-ecosystem: docker
+    schedule:
+      interval: daily
+      time: '06:00'
+      timezone: Europe/Paris

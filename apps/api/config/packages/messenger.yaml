@@ -1,0 +1,26 @@
+framework:
+    messenger:
+        transports:
+            async: '%env(resolve:MESSENGER_TRANSPORT_DSN)%'
+            sync: 'sync://'
+
+        default_bus: command.bus
+
+        buses:
+            command.bus:
+                middleware:
+                    - doctrine_transaction
+
+            event.bus: ~
+            query.bus: ~
+
+        routing:
+            Domain\Command\CommandInterface: sync
+            Domain\Query\QueryInterface: sync
+            Domain\Event\EventInterface: async
+
+when@test:
+    framework:
+        messenger:
+            transports:
+                async: 'in-memory://'

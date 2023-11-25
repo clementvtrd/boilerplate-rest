@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Application\Controller\:
+    resource: '%kernel.project_dir%/src/Application/Controller'
+    type: attribute
