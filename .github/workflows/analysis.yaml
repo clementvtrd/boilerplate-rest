@@ -1,0 +1,17 @@
+on: [push]
+
+name: Static analysis
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  deptrac:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: build php
+      run: docker compose build php
+    - name: run deptrac
+      run: docker compose run --rm --no-deps php bin/deptrac analyze deptrac.yaml --fail-on-uncovered
+

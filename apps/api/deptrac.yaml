@@ -1,24 +1,48 @@
 parameters:
-    paths:
-        - ./src
-    layers:
-        - name: Application
-          collectors:
-              - type: classLike
-                regex: ^Application\\.*
-        - name: Domain
-          collectors:
-              - type: classLike
-                regex: ^Domain\\.*
-        - name: Infrastructure
-          collectors:
-              - type: classLike
-                regex: ^Infrastructure\\.*
+  paths:
+    - ./src
 
-    ruleset:
-        Application:
-            - Domain
-        Domain: ~
-        Infrastructure:
-            - Application
-            - Domain
+  layers:
+    - name: Application
+      collectors:
+        - type: classLike
+          regex: ^Application\\.*
+
+    - name: Domain
+      collectors:
+        - type: classLike
+          regex: ^Domain\\.*
+
+    - name: Infrastructure
+      collectors:
+        - type: classLike
+          regex: ^Infrastructure\\.*
+
+    - name: Http
+      collectors:
+        - type: inherits
+          value: Symfony\Component\HttpFoundation\Request
+        - type: inherits
+          value: Symfony\Component\HttpFoundation\Response
+
+    - name: Vendor
+      collectors:
+        - type: bool
+          must_not:
+            - type: layer
+              layer: Application
+            - type: layer
+              layer: Domain
+            - type: layer
+              layer: Infrastructure
+            - type: layer
+              layer: Http
+
+  ruleset:
+    Domain: ~
+    Application:
+      - Domain
+      - Http
+    Infrastructure:
+      - +Application
+      - Vendor
