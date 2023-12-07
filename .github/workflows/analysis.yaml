@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: build php
-      run: docker compose build php
+      run: docker compose --file docker-compose.tools.yml build deptrac
     - name: run deptrac
-      run: docker compose run --rm --no-deps php bin/deptrac analyze deptrac.yaml --fail-on-uncovered
+      run: docker compose --file docker-compose.tools.yml run --rm deptrac analyze --fail-on-uncovered
 
