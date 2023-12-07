@@ -6,12 +6,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  deptrac:
+  tools:
+    name: ${{ matrix.tool }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: [deptrac]
     steps:
     - uses: actions/checkout@v4
     - name: build php
-      run: docker compose --file docker-compose.tools.yml build deptrac
-    - name: run deptrac
-      run: docker compose --file docker-compose.tools.yml run --rm deptrac analyze --fail-on-uncovered
+      run: docker compose --file docker-compose.tools.yml build ${{ matrix.tool }}
+    - name: run ${{ matrix.tool }}
+      run: docker compose --file docker-compose.tools.yml run --rm ${{ matrix.tool }}
 

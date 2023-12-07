@@ -1,5 +1,6 @@
 services:
   deptrac:
     build: ./tools/deptrac
+    command: [analyze, --fail-on-uncovered]
     volumes:
       - ./apps/api:/code
