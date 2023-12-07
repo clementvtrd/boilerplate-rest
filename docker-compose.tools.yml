@@ -1,0 +1,5 @@
+services:
+  deptrac:
+    build: ./tools/deptrac
+    volumes:
+      - ./apps/api:/code

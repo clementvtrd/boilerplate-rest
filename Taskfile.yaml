@@ -61,3 +61,7 @@ tasks:
       - ./apps/api/composer.lock
     generates:
       - ./apps/api/vendor/**/*
+
+  deptrac:
+    cmds:
+      - docker compose --file docker-compose.tools.yml run --rm deptrac analyze --fail-on-uncovered

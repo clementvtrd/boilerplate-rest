@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: /apps/web
     schedule:
-      interval: daily
+      interval: weekly
       time: '06:00'
       timezone: Europe/Paris
     versioning-strategy: increase
@@ -20,7 +20,7 @@ updates:
   - package-ecosystem: composer
     directory: /apps/api
     schedule:
-      interval: daily
+      interval: weekly
       time: '06:00'
       timezone: Europe/Paris
     versioning-strategy: increase
@@ -32,46 +32,61 @@ updates:
         patterns:
           - doctrine/*
 
+  - package-ecosystem: composer
+    directory: /tools/deptrac
+    schedule:
+      interval: weekly
+      time: '06:00'
+      timezone: Europe/Paris
+    versioning-strategy: increase
+
   ### DOCKERFILES ###
 
-  - directory: /apps/api
-    package-ecosystem: docker
+  - package-ecosystem: docker
+    directory: /apps/api
+    schedule:
+      interval: weekly
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - package-ecosystem: docker
+    directory: /apps/web
+    schedule:
+      interval: weekly
+      time: '06:00'
+      timezone: Europe/Paris
+
+  - package-ecosystem: docker
+    directory: /services/postgres
     schedule:
       interval: daily
       time: '06:00'
       timezone: Europe/Paris
 
-  - directory: /apps/web
-    package-ecosystem: docker
+  - package-ecosystem: docker
+    directory: /services/nginx
     schedule:
       interval: daily
       time: '06:00'
       timezone: Europe/Paris
 
-  - directory: /services/postgres
-    package-ecosystem: docker
+  - package-ecosystem: docker
+    directory: /services/traefik
     schedule:
-      interval: daily
+      interval: weekly
       time: '06:00'
       timezone: Europe/Paris
 
-  - directory: /services/nginx
-    package-ecosystem: docker
+  - package-ecosystem: docker
+    directory: /services/rabbitmq
     schedule:
-      interval: daily
+      interval: weekly
       time: '06:00'
       timezone: Europe/Paris
 
-  - directory: /services/traefik
-    package-ecosystem: docker
+  - package-ecosystem: docker
+    directory: /tools/deptrac
     schedule:
-      interval: daily
-      time: '06:00'
-      timezone: Europe/Paris
-
-  - directory: /services/rabbitmq
-    package-ecosystem: docker
-    schedule:
-      interval: daily
+      interval: weekly
       time: '06:00'
       timezone: Europe/Paris
