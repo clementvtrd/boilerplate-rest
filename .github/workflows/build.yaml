@@ -1,0 +1,16 @@
+on: [pull_request]
+
+name: Builder
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  tools:
+    name: build images
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: build php
+      run: docker compose build
+
