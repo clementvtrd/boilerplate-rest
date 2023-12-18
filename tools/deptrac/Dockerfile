@@ -1,4 +1,4 @@
-FROM composer:2.6.5 AS vendor
+FROM composer:2.6.6 AS vendor
 
 WORKDIR /deptrac
 
