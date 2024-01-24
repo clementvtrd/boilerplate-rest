@@ -1,3 +1,7 @@
+**This repository is archived**
+
+Please, see [clementvtrd/boilerplate-graphql](https://github.com/clementvtrd/boilerplate-graphql) to have an up-to-date boilerplate (with GraphQL included, but you can easily remove it)
+
 # Hexagonal boilerplate
 
 ## Hexagonal architecture
