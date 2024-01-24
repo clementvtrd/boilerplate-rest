@@ -5768,16 +5768,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.48",
+            "version": "1.10.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6"
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6",
-                "reference": "087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/27816a01aea996191ee14d010f325434c0ee76fa",
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa",
                 "shasum": ""
             },
             "require": {
@@ -5826,7 +5826,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-08T14:34:28+00:00"
+            "time": "2024-01-15T10:43:00+00:00"
         },
         {
             "name": "sebastian/comparator",
